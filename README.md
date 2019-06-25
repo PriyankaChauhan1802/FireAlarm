@@ -1,0 +1,2 @@
+# FireAlarm
+Detect a flame
