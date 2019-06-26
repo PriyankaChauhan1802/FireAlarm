@@ -1,7 +1,6 @@
 import RPi.GPIO as GPIO
 import time
 from twilio.rest import Client
-from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
 import requests
