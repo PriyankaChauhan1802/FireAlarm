@@ -9,11 +9,9 @@ import json
 
 
 channel_fire=21
-channel_sound=16
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(channel_sound,GPIO.OUT)
 GPIO.setup(channel_fire, GPIO.IN)
-GPIO.output(channel_sound,GPIO.LOW)
+
 
 account_sid = 'ACabc6bb44978a11d1d24fc21fdae4f3c3'
 auth_token = '2efa0053be19e08a1a3fe94c4a113e9d'
@@ -23,16 +21,10 @@ def callback(channel):
 	call()
 	email()
 	sms()
-	#soundon()
+	
 
 GPIO.add_event_detect(channel_fire ,GPIO.BOTH,bouncetime=300)
 GPIO.add_event_callback(channel_fire ,callback)
-
-
-def soundon():
-	GPIO.output(channel_sound,GPIO.HIGH)
-def soundoff():
-	GPIO.output(channel_sound,GPIO.LOW)
 
 
 def call():
