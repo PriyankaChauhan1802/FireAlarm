@@ -12,8 +12,6 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel_fire, GPIO.IN)
 
 
-account_sid = 'ACabc6bb44978a11d1d24fc21fdae4f3c3'
-auth_token = '2efa0053be19e08a1a3fe94c4a113e9d'
 
 def callback(channel):
 	print('flame detected')
@@ -28,15 +26,15 @@ GPIO.add_event_callback(channel_fire ,callback)
 
 def call():
 	
-	account_sid = 'ACabc6bb44978a11d1d24fc21fdae4f3c3'
-	auth_token = '2efa0053be19e08a1a3fe94c4a113e9d'
+	account_sid = 'key'
+	auth_token = 'token'
 
 	client = Client(account_sid, auth_token)
 
 	call = client.calls.create(
                         
-                        to='+919930044490',
-                        from_='+16507276450',
+                        to='mobile number of the receiver',
+                        from_='+16507276456',
 				url='https://handler.twilio.com/twiml/EHcd0d8a67a09acf325b1bf5ca14277e2f'
                     )
 
@@ -44,8 +42,8 @@ def call():
 	print ('call has been initiated successfully')
 
 def email():
-	fromaddr = "test18021993@gmail.com"
-	toaddr = "kratikagulati95@gmail.com"
+	fromaddr = "email id of the sender"
+	toaddr = "email id of the receiver"
 	msg = MIMEMultipart('alternative')
 	msg['From'] = fromaddr
 	msg['To'] = toaddr
@@ -59,7 +57,7 @@ def email():
 
 	server = smtplib.SMTP('smtp.gmail.com', 587)
 	server.starttls()
-	server.login("test18021993@gmail.com", "Priyanka@123")
+	server.login("email id of the sender", "password")
 	server.sendmail(fromaddr, toaddr, msg.as_string())
 	print('Email has been sent')
 	server.quit()
@@ -79,7 +77,7 @@ def sms():
   				}
   		return requests.post(reqUrl, req_params)
 	
-	response = sendPostRequest(URL, 'FHRTZ66XUNRWU3N3GYL6GHPV63X5YQ3Z', 'Z433DO0IXTSTW8IM', 'stage', '9166644111', 'Fire Emergency', 'Fire!	Emergency' )
+	response = sendPostRequest(URL, 'key', 'token', 'stage', 'mobile number of the receiver', 'Fire Emergency', 'Fire!	Emergency' )
 
 	print('SMS has been sent')
 
